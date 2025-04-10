@@ -1,0 +1,23 @@
+{
+  "name": "image-regression-tests",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "images-regenerate": "npx tsx ./src/imageTests/runImageGeneration.ts",
+    "images-compare": "npx tsx ./src/imageTests/runComparisonTests.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/node": "^22.14.0",
+    "eslint": "^9.21.0",
+    "globals": "^15.15.0",
+    "pixelmatch": "^7.1.0",
+    "pkg-dir": "^8.0.0",
+    "playwright": "^1.51.1",
+    "@types/pngjs": "^6.0.5",
+    "pngjs": "^7.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.24.1"
+  }
+}
