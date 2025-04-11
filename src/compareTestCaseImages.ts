@@ -10,12 +10,13 @@ import {
 
 import { generateImage } from "src/generateImage";
 /**
- * Test is setup to find all images within a test case directory
- * this means that if for, for some reason, the generation logic changes to generation multiple images
- * per josn files (i.e. several pages of a PDF), the testing functionality will find all images
- * inside a test case directory.
+ * Comparing Test Case Images
  *
- * - a custom generateImage function can be passed to the generateImages logic.
+ * A test suite is setup to firsty generate all the test case images to an `actual` directory in `.imageTests`.
+ * The test suite then finds all the newly generated images and compares them to the reference images - images
+ * previously exported to the reference directly and commited.
+ *
+ * A custom generateImage function can be passed to the generateImages logic.
  * - this allows us to decouple the implementation of the image generation logic from the comparison of images
  */
 
