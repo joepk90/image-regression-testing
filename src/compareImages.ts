@@ -13,7 +13,7 @@ import {
   log,
   VisualTestCase,
   writeImageToFile,
-} from "src/imageTests/common";
+} from "src/common";
 
 const getImage = async (imagePath: string) => {
   const buffer = readFileSync(imagePath);

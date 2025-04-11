@@ -1,11 +1,11 @@
-import { getAllTestCases } from "src/imageTests/common";
+import { getAllTestCases } from "src/common";
 import path from "path";
 import {
   generateImageWithBackground,
   readJsonFile,
   writeImageToFile,
   createDirIfNonExistent,
-} from "src/imageTests/common";
+} from "src/common";
 
 /**
  * generateImages Function:

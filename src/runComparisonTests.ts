@@ -1,12 +1,8 @@
 import assert from "node:assert";
 import { describe, it } from "node:test";
-import {
-  getAllTestCases,
-  VisualTestCase,
-  CURRENT_DIR_NAME,
-} from "src/imageTests/common";
-import { compareTestCases } from "src/imageTests/compareImages";
-import { generateImages } from "src/imageTests/generateImages";
+import { getAllTestCases, VisualTestCase, CURRENT_DIR_NAME } from "src/common";
+import { compareTestCases } from "src/compareImages";
+import { generateImages } from "src/generateImages";
 
 /**
  * Test is setup to find all images within a test case directory
