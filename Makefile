@@ -1,6 +1,4 @@
-# image regression tests
-
-images-regenerate:
+images-generate:
 	npm run images-generate
 
 images-compare:
