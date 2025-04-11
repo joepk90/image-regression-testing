@@ -37,7 +37,7 @@ export const generateImages = async <I>({
   console.log("=== GENERATING IMAGES ===");
   return await Promise.all(
     testCases.map(async (testCase) => {
-      console.log("GENERATING IMAGE: ", testCase.jsonFilename);
+      console.log("GENERATING IMAGES FOR: ", testCase.jsonFilename);
 
       const options = readJsonFile(testCase.path);
 
