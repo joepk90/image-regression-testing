@@ -28,4 +28,4 @@ If this is not done, the CI will fail because this image will will not be able t
 ---
 
 For Storybook regression testing see the following repository:
-[storybook-image-ci-example](https://github.com/joepk90/storybook-image-ci-example)
+[github.com/joepk90/storybook-regression-testing](https://github.com/joepk90/storybook-regression-testing)
