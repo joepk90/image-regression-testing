@@ -1,19 +1,32 @@
-import { getAllTestCases } from "src/common";
 import path from "path";
+import { PNG } from "pngjs";
+
 import {
-  generateImageWithBackground,
+  getAllTestCases,
+  createDirIfNonExistent,
   readJsonFile,
   writeImageToFile,
-  createDirIfNonExistent,
-} from "src/common";
+} from "src/utils";
 
 /**
- * generateImages Function:
+ * Generate Images Function:
+ *
+ * requires a custom generateImage function to handle image generation
  *
  * Generates images to a target directory within the .imageTests directory.
+ * @param generateImage
  * @param outputDir
  */
-export const generateImages = async (outputDir: string) => {
+
+type GenerateImagesProps<I> = {
+  generateImage: (options: I) => PNG;
+  outputDir: string;
+};
+
+export const generateImages = async <I>({
+  generateImage,
+  outputDir,
+}: GenerateImagesProps<I>) => {
   const testCases = await getAllTestCases();
 
   console.log("=== GENERATING IMAGES ===");
@@ -22,7 +35,7 @@ export const generateImages = async (outputDir: string) => {
       console.log("GENERATING IMAGE: ", testCase.jsonFilename);
 
       const option = readJsonFile(testCase.path);
-      const png = generateImageWithBackground(option);
+      const png = generateImage(option);
       const pngName = testCase.jsonFilename.replace("json", "png");
 
       const outputDirectory = path.join(testCase.parentDir, outputDir);
