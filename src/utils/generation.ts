@@ -23,6 +23,11 @@ type GenerateImagesProps<I> = {
   outputDir: string;
 };
 
+const createImageFileName = (jsonFilename: string, index: number) => {
+  const jsonFileName = jsonFilename.replace(".json", "");
+  return `${jsonFileName}-${index + 1}.png`;
+};
+
 export const generateImages = async <I>({
   generateImage,
   outputDir,
@@ -39,8 +44,8 @@ export const generateImages = async <I>({
       // loop through each element in the json file (each json file can generate multiple images)
       for (const [index, option] of options.entries()) {
         const png = await generateImage(option); // custom function passed in in the run... scripts
-        const jsonFileName = testCase.jsonFilename.replace(".json", "");
-        const pngName = `${jsonFileName}-${index + 1}.png`;
+
+        const pngName = createImageFileName(testCase.jsonFilename, index);
 
         const outputDirectory = path.join(testCase.parentDir, outputDir);
 
