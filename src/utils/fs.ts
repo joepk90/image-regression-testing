@@ -31,6 +31,7 @@ export const getCurrentImagePath = (parentDir: string, imageName: string) => {
   return getImagePath(parentDir, CURRENT_DIR_NAME, imageName);
 };
 
+// TODO: currently returns any! should return VisualTestCase as a generic
 export const readJsonFile = (path: string) => {
   if (!fs.existsSync(path)) {
     console.warn(`JSON file not found at ${path}`);

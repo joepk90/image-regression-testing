@@ -56,7 +56,6 @@ export const compareTestCases = async (testCase: VisualTestCase) => {
 
   const referenceImagesNames = await getReferenceImagePaths(parentDir);
 
-  // TODO Map instead? And then check if the array contains any false values? tbf this approach is less iterations (faster..)
   let allImagesAreEqual = true;
   for (const refImageName of referenceImagesNames) {
     const imageIsEqual = await compareTestCase(testCase, refImageName);

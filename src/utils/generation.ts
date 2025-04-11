@@ -34,18 +34,23 @@ export const generateImages = async <I>({
     testCases.map(async (testCase) => {
       console.log("GENERATING IMAGE: ", testCase.jsonFilename);
 
-      const option = readJsonFile(testCase.path);
-      const png = generateImage(option);
-      const pngName = testCase.jsonFilename.replace("json", "png");
+      const options = readJsonFile(testCase.path);
 
-      const outputDirectory = path.join(testCase.parentDir, outputDir);
+      // loop through each element in the json file (each json file can generate multiple images)
+      for (const [index, option] of options.entries()) {
+        const png = await generateImage(option); // custom function passed in in the run... scripts
+        const jsonFileName = testCase.jsonFilename.replace(".json", "");
+        const pngName = `${jsonFileName}-${index + 1}.png`;
 
-      // create directory if it doesn't exist
-      createDirIfNonExistent(outputDirectory);
+        const outputDirectory = path.join(testCase.parentDir, outputDir);
 
-      // write file to directory
-      const referencePath = path.join(outputDirectory, pngName);
-      await writeImageToFile(png, referencePath);
+        // create directory if it doesn't exist
+        createDirIfNonExistent(outputDirectory);
+
+        // write file to directory
+        const referencePath = path.join(outputDirectory, pngName);
+        await writeImageToFile(png, referencePath);
+      }
     })
   );
 };
