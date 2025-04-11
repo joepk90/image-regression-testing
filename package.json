@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "images-generate": "npx tsx ./src/runImageGeneration.ts",
-    "images-compare": "npx tsx ./src/runComparisonTests.ts"
+    "images-generate": "npx tsx ./src/generateTestCaseImages.ts",
+    "images-compare": "npx tsx ./src/compareTestCaseImages.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
