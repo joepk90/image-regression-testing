@@ -82,6 +82,6 @@ export const getAllTestCases = async () => {
   );
 };
 
-export const getReferenceImagePaths = async (parentDir: string) => {
-  return await readdirSync(path.join(parentDir, REFERENCE_DIR_NAME));
+export const getCurrentImagePaths = async (parentDir: string) => {
+  return await readdirSync(path.join(parentDir, CURRENT_DIR_NAME));
 };
